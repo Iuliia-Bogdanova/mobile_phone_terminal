@@ -6,14 +6,15 @@ const StyledTitle = styled.h1`
     font-family: "Comfortaa", sans-serif;
     font-size: 50px;
     text-transform: lowercase;
-    color: #c6c1b7;
+    color: #e8e5de;
     text-align: center;
+    margin: 30px 0 40px;
 `;
 
 const Title = () => {
     return (
         <StyledTitle>
-            терминал оплаты мобильного телефона
+            терминал оплаты<br />мобильного телефона
         </StyledTitle>
     );
 }

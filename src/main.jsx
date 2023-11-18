@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import styled, { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
 const Global = createGlobalStyle`
     * {
@@ -9,8 +9,10 @@ const Global = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
     }
+    
     body {
-        background: #6c6c6b;
+        background: #8b8988;
+        user-select: none;
     }
 `;
 
