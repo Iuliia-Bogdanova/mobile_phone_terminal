@@ -1,8 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
+import styled, { createGlobalStyle } from 'styled-components'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const Global = createGlobalStyle`
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+`
 
-    <App />,
-)
+ReactDOM.createRoot(document.getElementById("root")).render(
+    <>
+        <Global />
+        <App />
+    </>
+);
