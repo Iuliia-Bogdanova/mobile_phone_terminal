@@ -1,20 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
-// import bg from '/bg3.jpg'
 import Title from './components/Title';
+import Flex from './components/Flex';
 
 const AppWrapper = styled.div`
     width: 100%;
+    max-width: 800px;
     min-height: 100vh;
-    padding: 2rem;
-    background: #6c6c6b;
+    margin: 0 auto;
+    padding: 20px;
 `;
 
 const App = () => {
 
     return (
         <AppWrapper>
-            <Title>терминал оплаты мобильного телефона</Title>
+            <Title />
+            <Flex></Flex>
         </AppWrapper>
     );
 };

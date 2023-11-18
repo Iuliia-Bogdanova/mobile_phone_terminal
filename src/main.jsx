@@ -9,7 +9,10 @@ const Global = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
     }
-`
+    body {
+        background: #6c6c6b;
+    }
+`;
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <>
