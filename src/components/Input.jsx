@@ -13,6 +13,8 @@ const StyledInput = styled.input`
     box-shadow: 0px 5px 10px rgba(19, 27, 44, 0.5);
     border-radius: 10px;
     transition: transform 0.5s ease;
+    text-align: center;
+    color: #171a21;
 
     &:hover {
         transform: scale(1.1);
@@ -78,6 +80,7 @@ const Input = ({ register, type, pattern, placeholder }) => {
             placeholder={placeholder}
             onChange={handleInputChange}
             value={value}
+            maxLength={15}
         />
     );
 };
