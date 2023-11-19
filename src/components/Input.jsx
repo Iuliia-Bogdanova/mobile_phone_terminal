@@ -28,6 +28,13 @@ const StyledInput = styled.input`
     &:last-of-type {
         margin-bottom: 20px;
     }
+
+    ::-webkit-inner-spin-button,
+    ::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        background-color: inherit;
+        margin: 0;
+    }
 `;
 
 const Input = ({ register, type, pattern, placeholder }) => {
@@ -58,6 +65,10 @@ const Input = ({ register, type, pattern, placeholder }) => {
             }
         }
 
+        if (type === "payment") {
+            newValue = Math.min(newValue, 1000); 
+        }
+
         setLocalValue(newValue);
         setValue(type, newValue);
     };
@@ -67,7 +78,7 @@ const Input = ({ register, type, pattern, placeholder }) => {
         inputPattern = /^\(\d{3}\) \d{3}-\d{2}-\d{2}$/;
     } else if (type === "payment") {
         inputType = "number";
-        inputPattern = /^\d+$/; // просто числа
+        inputPattern = /^\d+$/;
     }
 
     return (
@@ -81,6 +92,7 @@ const Input = ({ register, type, pattern, placeholder }) => {
             onChange={handleInputChange}
             value={value}
             maxLength={15}
+            inputMode="numeric"
         />
     );
 };
