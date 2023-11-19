@@ -1,6 +1,7 @@
 import React from 'react'
 import { useForm } from "react-hook-form"
 import Input from './Input'
+import Button from './Button'
 import "@fontsource/mulish"
 import styled from "styled-components"
 
@@ -31,31 +32,6 @@ const StyledLabel = styled.label`
     gap: 10px;
 `;
 
-const StyledButton = styled.button`
-    width: 150px;
-    padding: 10px;
-    font-family: "Mulish", sans-serif;
-    font-size: 22px;
-    text-transform: lowercase;
-    color: #e8e5de;
-    background: #393e48;
-    outline: none;
-    border: 2px solid #c6c1b7;
-    box-shadow: 0px 5px 10px rgba(19, 27, 44, 0.5);
-    border-radius: 10px;
-    transition: transform 0.5s ease;
-
-    &:hover {
-        transform: scale(1.1);
-        cursor: pointer;
-    }
-
-    &:focus {
-        border-color: #747677;
-        opacity: 0.5;
-    }
-`;
-
 const InputsContainer = () => {
     const { register, handleSubmit, setValue } = useForm();
 
@@ -68,11 +44,7 @@ const InputsContainer = () => {
             <StyledForm onSubmit={handleSubmit(onSubmit)}>
                 <StyledLabel>
                     Номер телефона
-                    <Input 
-                        register={register}     
-                        type="phone" 
-                        placeholder="+7" 
-                    />
+                    <Input register={register} type="phone" placeholder="+7" />
                 </StyledLabel>
                 <StyledLabel>
                     Сумма оплаты
@@ -82,14 +54,15 @@ const InputsContainer = () => {
                         placeholder="от 1 до 1000 руб."
                     />
                 </StyledLabel>
-
-                <StyledButton type="submit">Оплатить</StyledButton>
-                <StyledButton
+                <Button type="submit" onClick={handleSubmit(onSubmit)}>
+                    Оплатить
+                </Button>
+                <Button
                     type="button"
                     onClick={() => (window.location.href = "/")}
                 >
                     На главную
-                </StyledButton>
+                </Button>
             </StyledForm>
         </StyledInputsContainer>
     );
