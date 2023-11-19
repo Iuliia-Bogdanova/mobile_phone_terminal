@@ -20,7 +20,7 @@ const App = () => {
     return (
         <AppWrapper>
             <Title />
-            {/* <CardsContainer /> */}
+            <CardsContainer />
             <InputsContainer />
             <Footer />
         </AppWrapper>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "@fontsource/mulish";
 import styled from "styled-components"
 
@@ -27,9 +27,18 @@ const StyledInput = styled.input`
     }
 `;
 
-const Input = ({ register, type, pattern, placeholder }) => {
+const Input = ({ register, type, pattern, placeholder, setValue }) => {
     let inputType = type;
     let inputPattern = pattern;
+
+    const [value, setLocalValue] = useState("");
+
+    const handleInputChange = (event) => {
+        const { value } = event.target;
+        const newValue = value.replace(/\D/g, "");
+        setLocalValue(newValue);
+        setValue(type, newValue);
+    };
 
     if (type === "phone") {
         inputType = "tel";
@@ -47,6 +56,8 @@ const Input = ({ register, type, pattern, placeholder }) => {
                 pattern: inputPattern,
             })}
             placeholder={placeholder}
+            onChange={handleInputChange}
+            value={value}
         />
     );
 };

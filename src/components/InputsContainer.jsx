@@ -44,7 +44,9 @@ const InputsContainer = () => {
             <StyledForm onSubmit={handleSubmit(onSubmit)}>
                 <StyledLabel>
                     Номер телефона
-                    <Input register={register} type="phone" placeholder="+7" />
+                    <Input register={register} 
+                    type="phone" 
+                    placeholder="+7" />
                 </StyledLabel>
                 <StyledLabel>
                     Сумма оплаты
