@@ -29,6 +29,7 @@ const StyledLabel = styled.label`
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    text-align: center;
     gap: 10px;
 `;
 
@@ -44,9 +45,11 @@ const InputsContainer = () => {
             <StyledForm onSubmit={handleSubmit(onSubmit)}>
                 <StyledLabel>
                     Номер телефона
-                    <Input register={register} 
-                    type="phone" 
-                    placeholder="+7" />
+                    <Input
+                        register={register}
+                        type="phone"
+                        placeholder="(123) 456-78-90"
+                    />
                 </StyledLabel>
                 <StyledLabel>
                     Сумма оплаты
