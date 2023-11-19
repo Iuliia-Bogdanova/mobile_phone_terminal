@@ -1,6 +1,6 @@
 import React from 'react'
-import styled from "styled-components"
 import "@fontsource/comfortaa"
+import styled from "styled-components"
 
 const StyledFooter = styled.div`
     font-family: "Comfortaa", sans-serif;
