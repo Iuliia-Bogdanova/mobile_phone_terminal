@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import Title from './components/Title';
 import CardsContainer from './components/CardsContainer';
-import Footer from './components/Footer';
+import InputsContainer from './components/InputsContainer';
+import Footer from "./components/Footer";
 
 const AppWrapper = styled.div`
     display: flex;
@@ -20,6 +21,7 @@ const App = () => {
         <AppWrapper>
             <Title />
             <CardsContainer />
+            <InputsContainer />
             <Footer />
         </AppWrapper>
     );
