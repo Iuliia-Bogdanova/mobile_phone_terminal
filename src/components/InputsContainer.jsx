@@ -1,6 +1,7 @@
 import React from 'react'
 import { useForm } from "react-hook-form"
-import "@fontsource/mulish";
+import Input from './Input'
+import "@fontsource/mulish"
 import styled from "styled-components"
 
 const StyledInputsContainer = styled.div`
@@ -28,31 +29,6 @@ const StyledLabel = styled.label`
     justify-content: space-around;
     align-items: center;
     gap: 10px;
-`;
-
-const StyledInput = styled.input`
-    font-family: "Mulish", sans-serif;
-    font-size: 22px;
-    padding: 10px;
-    background: inherit;
-    outline: none;
-    border: 2px solid #c6c1b7;
-    box-shadow: 0px 5px 10px rgba(19, 27, 44, 0.5);
-    border-radius: 10px;
-    transition: transform 0.5s ease;
-
-    &:hover {
-        transform: scale(1.1);
-        cursor: pointer;
-    }
-
-    &:focus {
-        border-color: #747677;
-    }
-
-    &:last-of-type {
-        margin-bottom: 20px;
-    }
 `;
 
 const StyledButton = styled.button`
@@ -92,20 +68,17 @@ const InputsContainer = () => {
             <StyledForm onSubmit={handleSubmit(onSubmit)}>
                 <StyledLabel>
                     Номер телефона
-                    <StyledInput
-                        type="tel"
-                        {...register("phone", {
-                            required: true,
-                            pattern: /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/,
-                        })}
-                        placeholder="+7"
+                    <Input 
+                        register={register}     
+                        type="phone" 
+                        placeholder="+7" 
                     />
                 </StyledLabel>
                 <StyledLabel>
                     Сумма оплаты
-                    <StyledInput
-                        type="number"
-                        {...register("payment")}
+                    <Input
+                        register={register}
+                        type="payment"
                         placeholder="от 1 до 1000 руб."
                     />
                 </StyledLabel>
