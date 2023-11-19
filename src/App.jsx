@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Title from './components/Title';
-import Flex from './components/Flex';
+import CardsContainer from './components/CardsContainer';
 import Footer from './components/Footer';
 
 const AppWrapper = styled.div`
@@ -19,7 +19,7 @@ const App = () => {
     return (
         <AppWrapper>
             <Title />
-            <Flex />
+            <CardsContainer />
             <Footer />
         </AppWrapper>
     );

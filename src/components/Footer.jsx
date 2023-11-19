@@ -6,14 +6,24 @@ const StyledFooter = styled.div`
     font-family: "Comfortaa", sans-serif;
     font-size: 20px;
     text-transform: lowercase;
-    color: #ece4d3;
+    color: #e8e5de;
     text-align: center;
     margin: 40px 0 30px;
+    transition: transform 0.5s ease;
+
+    &:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+    }
 `;
 
 const Footer = () => {
     return (
-        <StyledFooter>© Iuliia Bogdanova, 2023</StyledFooter>
+        <StyledFooter>
+            <a href="https://github.com/Iuliia-Bogdanova" target="_blank">
+                © Iuliia Bogdanova, 2023
+            </a>
+        </StyledFooter>
     );
 }
 

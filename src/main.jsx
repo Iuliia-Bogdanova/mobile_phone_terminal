@@ -14,6 +14,11 @@ const Global = createGlobalStyle`
         background: #8b8988;
         user-select: none;
     }
+
+    a, a:link, a:visited, a:hover  {
+        text-decoration: none;
+        color: inherit;
+    }
 `;
 
 ReactDOM.createRoot(document.getElementById("root")).render(
