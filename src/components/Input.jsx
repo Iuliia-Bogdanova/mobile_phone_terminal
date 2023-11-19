@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { useForm } from "react-hook-form"
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import "@fontsource/mulish";
-import styled from "styled-components"
+import styled from "styled-components";
 
 const StyledInput = styled.input`
     font-family: "Mulish", sans-serif;
@@ -38,12 +38,22 @@ const Input = ({ register, type, pattern, placeholder }) => {
     const handleInputChange = (event) => {
         let newValue = event.target.value.replace(/\D/g, "");
 
-        if (type === "phone" && !newValue.startsWith("+7")) {
-            newValue = `+7 (${newValue.slice(0, 3)}) ${newValue.slice(3, 6)}-${newValue.slice(6, 8)}-${newValue.slice(8, 10)}`;
-        }
-
-        if (newValue.startsWith("+7")) {
-            newValue = newValue.slice(2);
+        if (type === "phone") {
+            if (newValue.length <= 3) {
+                newValue = `(${newValue}`;
+            } else if (newValue.length <= 6) {
+                newValue = `(${newValue.slice(0, 3)}) ${newValue.slice(3)}`;
+            } else if (newValue.length <= 8) {
+                newValue = `(${newValue.slice(0, 3)}) ${newValue.slice(
+                    3,
+                    6
+                )}-${newValue.slice(6)}`;
+            } else if (newValue.length <= 10) {
+                newValue = `(${newValue.slice(0, 3)}) ${newValue.slice(
+                    3,
+                    6
+                )}-${newValue.slice(6, 8)}-${newValue.slice(8)}`;
+            }
         }
 
         setLocalValue(newValue);
@@ -52,8 +62,7 @@ const Input = ({ register, type, pattern, placeholder }) => {
 
     if (type === "phone") {
         inputType = "tel";
-        inputPattern = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
-        
+        inputPattern = /^\(\d{3}\) \d{3}-\d{2}-\d{2}$/;
     } else if (type === "payment") {
         inputType = "number";
         inputPattern = /^\d+$/; // просто числа
@@ -73,4 +82,6 @@ const Input = ({ register, type, pattern, placeholder }) => {
     );
 };
 
-export default Input
+export default Input;
+
+
