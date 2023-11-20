@@ -16,6 +16,21 @@ const StyledCard = styled.div`
         transform: scale(1.1);
         cursor: pointer;
     }
+
+    @media (max-width: 768px) {
+        width: 230px;
+        height: 230px;
+    }
+
+    @media (max-width: 566px) {
+        width: 160px;
+        height: 160px;
+    }
+
+    @media (max-width: 452px) {
+        width: 230px;
+        height: 230px;
+    }
 `;
 
 const Card = ({ logo, alt }) => {

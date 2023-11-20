@@ -12,6 +12,14 @@ const StyledCardsContainer = styled.div`
     align-content: center
     gap: 10px;
     padding: 30px 0;
+
+    @media (max-width: 768px) {
+        justify-content: space-around;
+    }
+
+    @media (max-width: 452px) {
+        gap: 30px;
+    }
 `;
 
 const CardsContainer = () => {

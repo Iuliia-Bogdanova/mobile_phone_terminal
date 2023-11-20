@@ -42,6 +42,14 @@ const StyledModal = styled(Modal)`
     box-shadow: 0px 5px 10px rgba(19, 27, 44, 0.5);
     border-radius: 10px;
     animation: ${ModalPopup} 0.5s ease-in-out;
+
+    @media (max-width: 566px) {
+        width: 70%;
+        height: 40vh;
+        padding: 30px;
+        font-size: 20px;
+        line-height: 1.3;
+    }
 `;
 
 const StyledContent = styled.div`
