@@ -1,8 +1,19 @@
 import React from "react";
 import Modal from "react-modal";
 import "@fontsource/comfortaa";
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components";
 import CloseButton from "./CloseButton";
+
+const ModalPopup = keyframes`
+    0% {
+        opacity: 0;
+        transform: translateY(100%) translate(-50%, -50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) translate(-50%, -50%);
+    }
+`;
 
 const StyledModal = styled(Modal)`
     display: flex;
@@ -29,6 +40,7 @@ const StyledModal = styled(Modal)`
     border: 2px solid #c6c1b7;
     box-shadow: 0px 5px 10px rgba(19, 27, 44, 0.5);
     border-radius: 10px;
+    animation: ${ModalPopup} 0.5s ease-in-out;
 `;
 
 Modal.setAppElement("#root");
