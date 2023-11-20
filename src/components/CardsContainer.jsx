@@ -25,8 +25,8 @@ const CardsContainer = () => {
     return (
         <StyledCardsContainer>
             {cardsData.map((card, index) => (
-                <Link to="/inputs">
-                    <Card key={index} logo={card.logo} alt={card.alt} />
+                <Link key={`${card.logo}-${card.alt}`} to="/inputs">
+                    <Card logo={card.logo} alt={card.alt} />
                 </Link>
             ))}
         </StyledCardsContainer>
