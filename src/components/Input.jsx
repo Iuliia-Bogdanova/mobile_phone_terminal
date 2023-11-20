@@ -65,8 +65,8 @@ const Input = ({ register, type, pattern, placeholder }) => {
             }
         }
 
-        if (type === "payment") {
-            newValue = Math.min(newValue, 1000); 
+        if (type === "payment") { 
+            newValue = Math.max(1, Math.min(1000, Number(newValue)));
         }
 
         setLocalValue(newValue);

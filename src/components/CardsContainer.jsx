@@ -27,7 +27,7 @@ const CardsContainer = () => {
         { logo: "beeline.svg", alt: "Билайн" },
         { logo: "MTS_logo.svg", alt: "МТС" },
         { logo: "megafon.svg", alt: "Мегафон" },
-        { logo: "mobile.svg", alt: "Твой провайдер" },
+        { logo: "mobile.svg", alt: "Твой оператор" },
     ];
 
     return (
