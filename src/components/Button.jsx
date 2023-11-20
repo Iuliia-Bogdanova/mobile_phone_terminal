@@ -1,6 +1,6 @@
 import React from 'react'
-import "@fontsource/mulish";
-import styled from "styled-components";
+import "@fontsource/mulish"
+import styled from "styled-components"
 
 const StyledButton = styled.button`
     width: 150px;

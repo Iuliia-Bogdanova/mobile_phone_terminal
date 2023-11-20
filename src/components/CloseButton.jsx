@@ -3,8 +3,6 @@ import styled from "styled-components"
 import close from "/close.svg"
 
 const StyledCloseButton = styled.button`
-    display: flex;
-    justify-content: flex-end;
     background: none;
     border: none;
     padding: 0;

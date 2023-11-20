@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import "@fontsource/mulish";
-import styled from "styled-components";
+import React, { useState } from "react"
+import { useForm } from "react-hook-form"
+import "@fontsource/mulish"
+import styled from "styled-components"
 
 const StyledInput = styled.input`
     font-family: "Mulish", sans-serif;

@@ -1,8 +1,8 @@
-import React from "react";
-import Modal from "react-modal";
-import "@fontsource/comfortaa";
-import styled, { keyframes } from "styled-components";
-import CloseButton from "./CloseButton";
+import React from "react"
+import Modal from "react-modal"
+import "@fontsource/comfortaa"
+import styled, { keyframes } from "styled-components"
+import CloseButton from "./CloseButton"
 
 const ModalPopup = keyframes`
     0% {
@@ -18,7 +18,7 @@ const ModalPopup = keyframes`
 const StyledModal = styled(Modal)`
     display: flex;
     flex-direction: column;
-    align-content: center;
+    align-items: center;
     text-align: center;
     position: absolute;
     width: 50%;
@@ -33,6 +33,7 @@ const StyledModal = styled(Modal)`
     padding: 40px;
     font-family: "Comfortaa", sans-serif;
     font-size: 22px;
+    line-height: 1.5;
     text-transform: lowercase;
     color: #e8e5de;
     background: #8b8988;
@@ -43,16 +44,35 @@ const StyledModal = styled(Modal)`
     animation: ${ModalPopup} 0.5s ease-in-out;
 `;
 
+const StyledContent = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+`;
+
 Modal.setAppElement("#root");
 
-const ModalComponent = ({ isOpen, onRequestClose, message }) => {
+const ModalComponent = ({
+    isOpen,
+    onRequestClose,
+    message,
+    navigate,
+    success,
+}) => {
     return (
         <StyledModal
             isOpen={isOpen}
-            onRequestClose={onRequestClose}
+            onRequestClose={() => {
+                onRequestClose();
+                if (success) {
+                    navigate("/");
+                }
+            }}
             contentLabel="Modal"
         >
-            <CloseButton onRequestClose={onRequestClose} />
+            <StyledContent>
+                <CloseButton onRequestClose={onRequestClose} />
+            </StyledContent>
             <h2>{message}</h2>
         </StyledModal>
     );

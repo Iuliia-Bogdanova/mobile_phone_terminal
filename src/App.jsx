@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Title from './components/Title';
+import Title from './components/Title'
 import CardsContainer from './components/CardsContainer'
 import InputsContainer from './components/InputsContainer'
 import Footer from "./components/Footer"
