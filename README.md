@@ -1,8 +1,16 @@
-# React + Vite
+# ReactJS + Vite  
+# styled-components + react-modal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Web приложение — терминал оплаты мобильного телефона (тестовое задание для Brave Developers).  
 
-Currently, two official plugins are available:
+Главный экран со списком операторов - Билайн, МТС, Мегафон, Твой оператор.  
+По клику на иконку пользователь переходит на страницу с формой оплаты.  
+После введения номера телефона по шаблону и суммы оплаты от 1 до 1000 руб пользователь нажимает кнопку "оплатить".  
+Выходит модальное окно с сообщением в случайном порядке:  
+- успешная оплата - при закрытии модального окна пользователь переходит на главную станицу;
+- неуспешная оплата - предлагается повторить платеж позже.
+Также есть кнопка перехода со страницы оплаты на главную страницу.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+На доработку:  
+UX/UI - при переходе на страницу оплаты отображать логотип оператора или вводить название другого оператора.  
+Front - рефакторинг Input.jsx, доработать маску номера телефона (или найти приличную библиотеку).
