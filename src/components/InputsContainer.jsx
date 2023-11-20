@@ -1,25 +1,10 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Input from "./Input";
-import Button from "./Button";
-import Modal from "react-modal";
-import "@fontsource/mulish";
+import Button from "./Button"
+import ModalComponent from "./ModalComponent";
+import "@fontsource/mulish"
 import styled from "styled-components";
-
-// Настройка стилей для модального окна
-const customStyles = {
-    content: {
-        top: "50%",
-        left: "50%",
-        right: "auto",
-        bottom: "auto",
-        marginRight: "-50%",
-        transform: "translate(-50%, -50%)",
-    },
-};
-
-// Установка корневого элемента приложения для доступности
-Modal.setAppElement("#root");
 
 const StyledInputsContainer = styled.div`
     display: flex;
@@ -59,9 +44,9 @@ const InputsContainer = () => {
         const success = Math.random() > 0.5; // 50% вероятность успешной оплаты
 
         if (success) {
-            setMessage("Оплата прошла успешно");
+            setMessage("платеж зачислен");
         } else {
-            setMessage("Оплата не удалась");
+            setMessage("платеж не зачислен, попробуйте еще раз");
         }
 
         setIsOpen(true); // Открываем модальное окно
@@ -94,15 +79,11 @@ const InputsContainer = () => {
                     На главную
                 </Button>
             </StyledForm>
-            <Modal
+            <ModalComponent
                 isOpen={modalIsOpen}
                 onRequestClose={() => setIsOpen(false)}
-                style={customStyles}
-                contentLabel="Modal"
-            >
-                <h2>{message}</h2>
-                <button onClick={() => setIsOpen(false)}>Закрыть</button>
-            </Modal>
+                message={message}
+            />
         </StyledInputsContainer>
     );
 };
