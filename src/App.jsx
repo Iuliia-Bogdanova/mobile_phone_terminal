@@ -1,9 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Title from './components/Title';
-import CardsContainer from './components/CardsContainer';
-import InputsContainer from './components/InputsContainer';
-import Footer from "./components/Footer";
+import CardsContainer from './components/CardsContainer'
+import InputsContainer from './components/InputsContainer'
+import Footer from "./components/Footer"
+import styled from "styled-components"
 
 const AppWrapper = styled.div`
     display: flex;
@@ -16,14 +17,27 @@ const AppWrapper = styled.div`
 `;
 
 const App = () => {
-
     return (
-        <AppWrapper>
-            <Title />
-            {/* <CardsContainer /> */}
-            <InputsContainer />
-            <Footer />
-        </AppWrapper>
+        <Router>
+            <Routes>
+                <Route path="/" element={
+                        <AppWrapper>
+                            <Title />
+                            <CardsContainer />
+                            <Footer />
+                        </AppWrapper>
+                    }
+                />
+                <Route path="/inputs" element={
+                        <AppWrapper>
+                            <Title />
+                            <InputsContainer />
+                            <Footer />
+                        </AppWrapper>
+                    }
+                />
+            </Routes>
+        </Router>
     );
 };
 

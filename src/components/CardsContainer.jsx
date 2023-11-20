@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from "react-router-dom"
 import Card from './Card';
-import styled from "styled-components";
+import styled from "styled-components"
 
 const StyledCardsContainer = styled.div`
     display: flex;
@@ -17,14 +18,16 @@ const CardsContainer = () => {
     const cardsData = [
         { logo: "beeline.svg", alt: "Билайн" },
         { logo: "MTS_logo.svg", alt: "МТС" },
-        { logo: "megafon.svg", alt: "Мегафон"},
-        { logo: "mobile.svg", alt: "Твой провайдер"},
+        { logo: "megafon.svg", alt: "Мегафон" },
+        { logo: "mobile.svg", alt: "Твой провайдер" },
     ];
 
     return (
         <StyledCardsContainer>
             {cardsData.map((card, index) => (
-                <Card key={index} logo={card.logo} alt={card.alt} />
+                <Link to="/inputs">
+                    <Card key={index} logo={card.logo} alt={card.alt} />
+                </Link>
             ))}
         </StyledCardsContainer>
     );

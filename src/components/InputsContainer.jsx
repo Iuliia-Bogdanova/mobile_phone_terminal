@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import Input from "./Input";
+import React, { useState } from "react"
+import { Link } from "react-router-dom"
+import { useForm } from "react-hook-form"
+import Input from "./Input"
 import Button from "./Button"
-import ModalComponent from "./ModalComponent";
+import ModalComponent from "./ModalComponent"
 import "@fontsource/mulish"
-import styled from "styled-components";
+import styled from "styled-components"
 
 const StyledInputsContainer = styled.div`
     display: flex;
@@ -36,12 +37,11 @@ const StyledLabel = styled.label`
 
 const InputsContainer = () => {
     const { register, handleSubmit, setValue } = useForm();
-    const [modalIsOpen, setIsOpen] = useState(false); // Состояние модального окна
-    const [message, setMessage] = useState(""); // Сообщение для модального окна
+    const [modalIsOpen, setIsOpen] = useState(false); 
+    const [message, setMessage] = useState(""); 
 
     const onSubmit = (data) => {
-        // Симулируем обработку данных формы
-        const success = Math.random() > 0.5; // 50% вероятность успешной оплаты
+        const success = Math.random() > 0.5; 
 
         if (success) {
             setMessage("платеж зачислен");
@@ -49,7 +49,7 @@ const InputsContainer = () => {
             setMessage("платеж не зачислен, попробуйте еще раз");
         }
 
-        setIsOpen(true); // Открываем модальное окно
+        setIsOpen(true); 
     };
 
     return (
@@ -72,12 +72,9 @@ const InputsContainer = () => {
                     />
                 </StyledLabel>
                 <Button type="submit">Оплатить</Button>
-                <Button
-                    type="button"
-                    onClick={() => (window.location.href = "/")}
-                >
-                    На главную
-                </Button>
+                <Link to="/">
+                    <Button type="button">На главную</Button>
+                </Link>
             </StyledForm>
             <ModalComponent
                 isOpen={modalIsOpen}
