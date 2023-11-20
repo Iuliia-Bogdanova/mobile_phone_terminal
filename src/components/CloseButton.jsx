@@ -14,7 +14,6 @@ const StyledCloseButton = styled.button`
     transition: all 0.5s ease;
 
     &:hover {
-        transform: scale(1.2);
         opacity: 0.5;
         cursor: pointer;
     }
