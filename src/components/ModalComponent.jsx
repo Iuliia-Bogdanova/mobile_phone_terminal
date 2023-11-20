@@ -2,11 +2,15 @@ import React from "react";
 import Modal from "react-modal";
 import "@fontsource/comfortaa";
 import styled from "styled-components"
-import close from "/close.svg";
+import CloseButton from "./CloseButton";
 
 const StyledModal = styled(Modal)`
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
     position: absolute;
-    width: 60%;
+    width: 50%;
     max-width: 600px;
     height: 50vh;
     top: 50%;
@@ -15,7 +19,7 @@ const StyledModal = styled(Modal)`
     bottom: auto;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-    padding: 20px;
+    padding: 40px;
     font-family: "Comfortaa", sans-serif;
     font-size: 22px;
     text-transform: lowercase;
@@ -36,10 +40,8 @@ const ModalComponent = ({ isOpen, onRequestClose, message }) => {
             onRequestClose={onRequestClose}
             contentLabel="Modal"
         >
+            <CloseButton onRequestClose={onRequestClose} />
             <h2>{message}</h2>
-            <button onClick={onRequestClose}>
-                <img src={close} />
-            </button>
         </StyledModal>
     );
 };
