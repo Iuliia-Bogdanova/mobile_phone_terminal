@@ -9,7 +9,7 @@ const StyledCardsContainer = styled.div`
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    align-content: center
+    align-content: center;
     gap: 10px;
     padding: 30px 0;
 

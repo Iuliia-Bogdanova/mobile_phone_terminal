@@ -18,26 +18,16 @@ const AppWrapper = styled.div`
 
 const App = () => {
     return (
-        <Router>
-            <Routes>
-                <Route path="/" element={
-                        <AppWrapper>
-                            <Title />
-                            <CardsContainer />
-                            <Footer />
-                        </AppWrapper>
-                    }
-                />
-                <Route path="/inputs" element={
-                        <AppWrapper>
-                            <Title />
-                            <InputsContainer />
-                            <Footer />
-                        </AppWrapper>
-                    }
-                />
-            </Routes>
-        </Router>
+        <AppWrapper>
+            <Title />
+            <Router>
+                <Routes>
+                    <Route path="/" element={<CardsContainer />} />
+                    <Route path="/inputs" element={<InputsContainer />} />
+                </Routes>
+            </Router>
+            <Footer />
+        </AppWrapper>
     );
 };
 
