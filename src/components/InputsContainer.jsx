@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Input from "./Input";
 import Button from "./Button";
+import LoaderComponent from "./LoaderComponent";
 import ModalComponent from "./ModalComponent";
 import "@fontsource/mulish";
 import styled from "styled-components";
@@ -40,10 +41,12 @@ const InputsContainer = () => {
     const [modalIsOpen, setIsOpen] = useState(false);
     const [message, setMessage] = useState("");
     const [success, setSuccess] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
     const onSubmit = async (data) => {
         // Имитация запроса через Promise и setTimeout
+        setIsLoading(true);
         const paymentSuccess = await new Promise((resolve) => {
             setTimeout(() => {
                 resolve(Math.random() > 0.5);
@@ -58,10 +61,12 @@ const InputsContainer = () => {
         }
 
         setIsOpen(true);
+        setIsLoading(false);
     };
 
     return (
         <StyledInputsContainer>
+            {isLoading && <LoaderComponent />}
             <StyledForm onSubmit={handleSubmit(onSubmit)}>
                 <StyledLabel>
                     Номер телефона
