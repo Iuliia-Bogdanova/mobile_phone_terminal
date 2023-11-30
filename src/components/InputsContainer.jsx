@@ -1,11 +1,11 @@
-import React, { useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
-import { useForm } from "react-hook-form"
-import Input from "./Input"
-import Button from "./Button"
-import ModalComponent from "./ModalComponent"
-import "@fontsource/mulish"
-import styled from "styled-components"
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import Input from "./Input";
+import Button from "./Button";
+import ModalComponent from "./ModalComponent";
+import "@fontsource/mulish";
+import styled from "styled-components";
 
 const StyledInputsContainer = styled.div`
     display: flex;
@@ -37,22 +37,22 @@ const StyledLabel = styled.label`
 
 const InputsContainer = () => {
     const { register, handleSubmit } = useForm();
-    const [modalIsOpen, setIsOpen] = useState(false); 
-    const [message, setMessage] = useState(""); 
+    const [modalIsOpen, setIsOpen] = useState(false);
+    const [message, setMessage] = useState("");
     const [success, setSuccess] = useState(false);
     const navigate = useNavigate();
 
     const onSubmit = (data) => {
-        const paymenSuccess = Math.random() > 0.5; 
+        const paymentSuccess = Math.random() > 0.5;
 
-        if (paymenSuccess) {
+        if (paymentSuccess) {
             setMessage("платеж зачислен");
             setSuccess(true);
         } else {
             setMessage("платеж не зачислен, попробуйте еще раз");
         }
 
-        setIsOpen(true); 
+        setIsOpen(true);
     };
 
     return (

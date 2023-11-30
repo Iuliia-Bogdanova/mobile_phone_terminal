@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useForm } from "react-hook-form"
 import "@fontsource/mulish"
 import styled from "styled-components"
@@ -38,11 +38,20 @@ const StyledInput = styled.input`
 `;
 
 const Input = ({ register, type, pattern, placeholder }) => {
-    let inputType = type;
-    let inputPattern = pattern;
-
     const [value, setLocalValue] = useState("");
+    const [inputType, setInputType] = useState(type);
+    const [inputPattern, setInputPattern] = useState(pattern);
     const { setValue } = useForm();
+
+    useEffect(() => {
+        if (type === "phone") {
+            setInputType("tel");
+            setInputPattern(/^\(\d{3}\) \d{3}-\d{2}-\d{2}$/);
+        } else if (type === "payment") {
+            setInputType("number");
+            setInputPattern(/^\d+$/);
+        }
+    }, [type]);
 
     const handleInputChange = (event) => {
         let newValue = event.target.value.replace(/\D/g, "");
@@ -72,14 +81,6 @@ const Input = ({ register, type, pattern, placeholder }) => {
         setLocalValue(newValue);
         setValue(type, newValue);
     };
-
-    if (type === "phone") {
-        inputType = "tel";
-        inputPattern = /^\(\d{3}\) \d{3}-\d{2}-\d{2}$/;
-    } else if (type === "payment") {
-        inputType = "number";
-        inputPattern = /^\d+$/;
-    }
 
     return (
         <StyledInput
