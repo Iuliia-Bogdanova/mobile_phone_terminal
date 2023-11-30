@@ -42,8 +42,13 @@ const InputsContainer = () => {
     const [success, setSuccess] = useState(false);
     const navigate = useNavigate();
 
-    const onSubmit = (data) => {
-        const paymentSuccess = Math.random() > 0.5;
+    const onSubmit = async (data) => {
+        // Имитация запроса через Promise и setTimeout
+        const paymentSuccess = await new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(Math.random() > 0.5);
+            }, 2000);
+        });
 
         if (paymentSuccess) {
             setMessage("платеж зачислен");
